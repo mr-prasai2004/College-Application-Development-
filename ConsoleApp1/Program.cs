@@ -15,18 +15,18 @@ namespace ConsoleApp1
             ////Console.WriteLine(pi);
 
 
-            ////Task 3
-            //double pi = 3.14;
-            //byte age = 22;
-            //bool isMale = true;
-            //char grade = 'A';
-            //int nn = 12;
-            //short num = 123;
-            //long numm = 1234567898765;
-            //decimal nummm = 2.1312m;
-            //float haha = 1234f;
-            //string str = num.ToString();
-            //Console.WriteLine(str);
+            //Task 3
+            double pi = 3.14;
+            byte age = 22;
+            bool isMale = true;
+            char grade = 'A';
+            int nn = 12;
+            short num = 123;
+            long numm = 1234567898765;
+            decimal nummm = 2.1312m;
+            float haha = 1234f;
+            string str = num.ToString();
+            Console.WriteLine(str);
             string pii = "3.14";
             double piii= Convert.ToDouble(pii);
             Console.WriteLine(piii);
@@ -46,14 +46,19 @@ namespace ConsoleApp1
             {
                 Console.WriteLine(i);
             }
+            Array.Sort(number);
 
-           
+            foreach (int a in number)
+            {
+                Console.WriteLine(a);
+            }
 
 
 
 
 
-            
+
+
         }
 
         //Task2
