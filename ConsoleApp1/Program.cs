@@ -23,6 +23,9 @@ namespace ConsoleApp1
 
             Week3.AgeValidator age= new Week3.AgeValidator();
             age.ValidateAge(2);
+
+            Week3.days days = new Week3.days();
+            days.printDay(7);
         }
     }
     }
