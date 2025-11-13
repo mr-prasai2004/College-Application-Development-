@@ -34,6 +34,17 @@ namespace ConsoleApp1
             Week3.WhileLoop whileLoop = new Week3.WhileLoop();
             whileLoop.WhileLoopEx();
 
+            Week3.ArrayEg arrayEg = new Week3.ArrayEg();
+            arrayEg.ArrayEx();
+            
+            Week3.TryCatchEx tryCatch = new Week3.TryCatchEx();
+            tryCatch.TryCatchEg();
+
+
+            Week3.trycatcheg2 trycatcheg2 = new Week3.trycatcheg2();
+            trycatcheg2.trycatchex2();
+
+
         }
     }
     }
