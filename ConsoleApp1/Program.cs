@@ -26,6 +26,14 @@ namespace ConsoleApp1
 
             Week3.days days = new Week3.days();
             days.printDay(7);
+
+
+            Week3.LoopEg LoopE = new Week3.LoopEg();
+            LoopE.LoopEx();
+
+            Week3.WhileLoop whileLoop = new Week3.WhileLoop();
+            whileLoop.WhileLoopEx();
+
         }
     }
     }
