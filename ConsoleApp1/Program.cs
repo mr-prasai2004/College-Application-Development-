@@ -2,6 +2,7 @@
 using static ConsoleApp1.Week3;
 namespace ConsoleApp1
 {
+    enum DayType { Weekend, Weekday }
     internal class Program
     {
         static void Main(string[] args)
@@ -43,6 +44,53 @@ namespace ConsoleApp1
 
             Week3.trycatcheg2 trycatcheg2 = new Week3.trycatcheg2();
             trycatcheg2.trycatchex2();
+
+
+
+            //Week4
+
+
+            Students student = new Students("Aayush Prasai", "SundarHaraincha-8 Morang", 21);
+            student.displayInfo();
+
+
+            // Task - 2
+            Calculator cal = new Calculator();
+            cal.PrintWelcomeMessage();
+            double sum = cal.Add(5, 10);
+            double product = cal.Multiplication(20, 60);
+            Console.WriteLine($"Sum: {sum}, Product: {product}");
+
+
+            // Task - 3
+            ParameterDemo pd = new ParameterDemo();
+            int number = 50;
+            pd.Increase(ref number);
+            pd.FullName(out string fullname);
+            double total = pd.SumAll(10.5, 20.3, 30.2, 40.1);
+            Console.WriteLine($"Increased Number: {number}, Full Name: {fullname}, Total Sum: {total}");
+
+
+            // Task - 4
+            Player player = new Player();
+            Player player1 = new Player("Messi", "Advance", "Sound");
+            Console.WriteLine($"Player1 - Name: {player1.playerName}, Level: {player1.level}, Health: {player1.health}");
+
+
+            Console.WriteLine("Enter the day name (Example: Sunday)");
+            string datInput = Console.ReadLine();
+            string d = datInput!.Trim().ToLower();
+            DayType dayType;
+            if (d == "friday" || d == "saturday")
+            {
+                dayType = DayType.Weekend;
+            }
+            else
+            {
+                dayType = DayType.Weekday;
+            }
+            Console.WriteLine($"{datInput} is a {dayType}.");
+
 
 
         }
