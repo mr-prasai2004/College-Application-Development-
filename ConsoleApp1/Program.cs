@@ -77,6 +77,7 @@ namespace ConsoleApp1
             Console.WriteLine($"Player1 - Name: {player1.playerName}, Level: {player1.level}, Health: {player1.health}");
 
 
+            // Task - 5
             Console.WriteLine("Enter the day name (Example: Sunday)");
             string datInput = Console.ReadLine();
             string d = datInput!.Trim().ToLower();
@@ -91,8 +92,62 @@ namespace ConsoleApp1
             }
             Console.WriteLine($"{datInput} is a {dayType}.");
 
+            //Week5
+            // Create BankAccount object
+            Week5.BankAccount acc = new Week5.BankAccount("ACC1001", 500);
+
+            Console.WriteLine("Account Number: " + acc.AccountNumber);
+            Console.WriteLine("Opening Balance: " + acc.Balance);
+
+            acc.Deposit(200);
+            acc.Withdraw(150);
+
+            Console.WriteLine("Remaining Balance: " + acc.Balance);
+
+           
 
 
+            //Week 5 task 2:
+            // Create Car object
+
+            Console.WriteLine("Vehicle Information:");
+            Week5.Car car = new Week5.Car();
+            car.Brand = "Toyota";
+            car.Speed = 180;
+            car.Seats = 5;
+
+            // Create Motorcycle object
+            Week5.Motorcycle moto = new Week5.Motorcycle();
+            moto.Brand = "Honda";
+            moto.Speed = 120;
+            moto.HasStorageBox = true;
+
+            // Call base class methods
+            car.Start();
+            car.DisplayInfo();
+            car.Stop();
+
+            Console.WriteLine();
+
+            moto.Start();
+            moto.DisplayInfo();
+            moto.Stop();
+
+            Console.ReadLine();
+
+
+            // -------- TASK 3 TEST ---------
+
+            Week5.Printer printer = new Week5.Printer();
+
+            // Call Print(string)
+            printer.Print("Hello Polymorphism!");
+
+            // Call Print(int)
+            printer.Print(100);
+
+            // Call Print(string, int)
+            printer.Print("Repeated message", 3);
         }
     }
     }
