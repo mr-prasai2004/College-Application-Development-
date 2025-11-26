@@ -9,7 +9,7 @@ namespace ConsoleApp1
 {
     internal class Week5
     {
-       public class BankAccount
+        public class BankAccount
         {
             private string accountNumber;   // private fields  
             private double balance;
@@ -159,7 +159,7 @@ namespace ConsoleApp1
                 Console.WriteLine("Teacher teaches in English");
             }
 
-            public  void SalaryInfo()
+            public void SalaryInfo()
             {
                 Console.WriteLine($"{Name}'s salary is confidential.");
             }
@@ -219,5 +219,133 @@ namespace ConsoleApp1
             }
         }
 
+        public abstract class ElectronicDevice
+        {
+            // Encapsulation: private fields
+            private string brand;
+            private double price;
+
+            // Public Properties (Get/Set)
+            public string Brand
+            {
+                get { return brand; }
+                set { brand = value; }
+            }
+
+            public double Price
+            {
+                get { return price; }
+                set
+                {
+                    if (value < 0)
+                    {
+                        Console.WriteLine("Price cannot be negative. Setting to 0.");
+                        price = 0;
+                    }
+                    else
+                    {
+                        price = value;
+                    }
+                }
+            }
+
+            // Constructor (initializes brand & price)
+            public ElectronicDevice(string brand, double price)
+            {
+                Brand = brand;
+                Price = price;
+            }
+
+            // Abstract method → must be overridden
+            public abstract void ShowInfo();
+        }
+
+        // ============================
+        // DERIVED CLASS: Laptop
+        // ============================
+        public class Laptop : ElectronicDevice
+        {
+            public Laptop(string brand, double price)
+                : base(brand, price)
+            {
+            }
+
+            public override void ShowInfo()
+            {
+                Console.WriteLine($"Laptop Brand: {Brand}, Price: ${Price}");
+            }
+
+            public void TurnOnBattery()
+            {
+                Console.WriteLine("Laptop battery turned on.");
+            }
+        }
+
+        // ============================
+        // DERIVED CLASS: Smartphone
+        // ============================
+        public class Smartphone : ElectronicDevice
+        {
+            public Smartphone(string brand, double price)
+                : base(brand, price)
+            {
+            }
+
+            public override void ShowInfo()
+            {
+                Console.WriteLine($"Smartphone Brand: {Brand}, Price: ${Price}");
+            }
+
+            public void EnableCamera()
+            {
+                Console.WriteLine("Smartphone camera enabled.");
+            }
+        }
+
+        // ============================
+        // STORE CLASS
+        // ============================
+        public class ElectronicsStore
+        {
+            private List<ElectronicDevice> devices = new List<ElectronicDevice>();
+
+            public void AddDevice(ElectronicDevice device)
+            {
+                devices.Add(device);
+                Console.WriteLine($"{device.Brand} added to store.");
+            }
+
+            public void RemoveDevice(ElectronicDevice device)
+            {
+                if (devices.Remove(device))
+                    Console.WriteLine($"{device.Brand} removed from store.");
+                else
+                    Console.WriteLine("Device not found.");
+            }
+
+            public void ShowAllDeviceDetails()
+            {
+                Console.WriteLine("\n--- Devices in Store ---");
+
+                foreach (var device in devices)
+                {
+                    // Polymorphism: same method name, different implementation
+                    device.ShowInfo();
+
+                    // Downcasting to access child-specific features
+                    if (device is Laptop lap)
+                    {
+                        lap.TurnOnBattery();
+                    }
+                    else if (device is Smartphone phone)
+                    {
+                        phone.EnableCamera();
+                    }
+
+                    Console.WriteLine();
+                }
+            }
+        }
+        
         }
 }

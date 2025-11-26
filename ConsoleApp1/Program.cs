@@ -182,6 +182,21 @@ namespace ConsoleApp1
             bike.StartEngine();
             bike.StopEngine();
 
+            // Task 5: Electronics Store
+
+            Week5.ElectronicsStore store = new Week5.ElectronicsStore();
+
+            // Create Laptop and Smartphone objects
+            Week5.Laptop laptop = new Week5.Laptop("Dell", 1200);
+            Week5.Smartphone smartphone = new Week5.Smartphone("Samsung", 900);
+
+            // Add them to the store
+            store.AddDevice(laptop);
+            store.AddDevice(smartphone);
+
+            // Display info + call child methods (downcasting)
+            store.ShowAllDeviceDetails();
+
         }
 
 
