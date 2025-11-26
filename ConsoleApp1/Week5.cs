@@ -149,5 +149,75 @@ namespace ConsoleApp1
             }
         }
 
-    }
+        //Task 3
+        public class Teacher
+        {
+            public string Name { get; set; }
+
+            public virtual void Teaching()
+            {
+                Console.WriteLine("Teacher teaches in English");
+            }
+
+            public  void SalaryInfo()
+            {
+                Console.WriteLine($"{Name}'s salary is confidential.");
+            }
+        }
+
+        public class NepaliTeacher : Teacher
+        {
+            public override void Teaching()
+            {
+                Console.WriteLine("Nepali teacher teaches in Nepali language");
+            }
+        }
+
+        public class EnglishTeacher : Teacher
+        {
+            // Does NOT override Teaching() → uses base class method
+        }
+
+
+        //task 4
+        public abstract class AbsVehicle
+        {
+            // Abstract methods
+            public abstract void StartEngine();
+            public abstract void StopEngine();
+
+            // Concrete method
+            public void Display()
+            {
+                Console.WriteLine("This is a vehicle");
+            }
+        }
+
+        public class AbsCar : AbsVehicle
+        {
+            public override void StartEngine()
+            {
+                Console.WriteLine("Car engine started.");
+            }
+
+            public override void StopEngine()
+            {
+                Console.WriteLine("Car engine stopped.");
+            }
+        }
+
+        public class AbsBike : AbsVehicle
+        {
+            public override void StartEngine()
+            {
+                Console.WriteLine("Bike engine started.");
+            }
+
+            public override void StopEngine()
+            {
+                Console.WriteLine("Bike engine stopped.");
+            }
+        }
+
+        }
 }

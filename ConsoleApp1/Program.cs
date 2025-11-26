@@ -148,6 +148,44 @@ namespace ConsoleApp1
 
             // Call Print(string, int)
             printer.Print("Repeated message", 3);
+
+
+            Week5.NepaliTeacher nepaliT = new Week5.NepaliTeacher();
+            nepaliT.Name = "Ram";
+            Console.WriteLine("Nepali Teacher:");
+            nepaliT.Teaching();   // overridden
+            nepaliT.SalaryInfo(); // sealed method
+            Console.WriteLine();
+
+            // English Teacher object
+            Week5.EnglishTeacher englishT = new Week5.EnglishTeacher();
+            englishT.Name = "John";
+            Console.WriteLine("English Teacher:");
+            englishT.Teaching();    // uses base class method
+            englishT.SalaryInfo();
+            
+
+
+            //Task 4
+            Week5.AbsCar caar = new Week5.AbsCar();
+            Week5.AbsBike bike = new Week5.AbsBike();
+
+            Console.WriteLine("Car:");
+            caar.Display();
+            caar.StartEngine();
+            caar.StopEngine();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Bike:");
+            bike.Display();
+            bike.StartEngine();
+            bike.StopEngine();
+
         }
+
+
+
+
     }
     }
