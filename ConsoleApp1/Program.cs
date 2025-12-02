@@ -197,6 +197,16 @@ namespace ConsoleApp1
             // Display info + call child methods (downcasting)
             store.ShowAllDeviceDetails();
 
+
+
+
+            //Week6
+
+            Week6 rectangle = new Week6();
+            rectangle.length1 = 10.5;
+            rectangle.breadth1 = 5.1;
+            Console.WriteLine(rectangle.ShowDetails());
+            
         }
 
 
