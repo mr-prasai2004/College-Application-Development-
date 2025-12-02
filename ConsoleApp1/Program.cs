@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using static ConsoleApp1.Week3;
+using static ConsoleApp1.Week6;
 namespace ConsoleApp1
 {
     enum DayType { Weekend, Weekday }
@@ -206,7 +207,16 @@ namespace ConsoleApp1
             rectangle.length1 = 10.5;
             rectangle.breadth1 = 5.1;
             Console.WriteLine(rectangle.ShowDetails());
-            
+
+            //Week6 task2
+
+            Week6 calculator1 = new Week6();
+            calculator del1;
+            del1=calculator1.add;
+            Console.WriteLine($"Addition: {del1(10, 20)}");
+            del1 =calculator1.sub;
+            Console.WriteLine($"Subtraction: {del1(30, 15)}");
+
         }
 
 

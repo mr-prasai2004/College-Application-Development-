@@ -10,6 +10,8 @@ namespace ConsoleApp1
     {
         private double length;
         private double breadth;
+        private double a;
+        private double b;
 
         public double length1
         {
@@ -27,6 +29,14 @@ namespace ConsoleApp1
         {
             return $"Length: {length}, Breadth: {breadth}, Area: {GetArea()}, Perimeter: {perimeter(length, breadth)}";
         }
+
+
+        //Task 2
+        public delegate double calculator(double a, double b);
+
+        public double add(double x,double y) => x+ y;
+        public double sub(double x, double y) => x - y;
+        
 
 
 
