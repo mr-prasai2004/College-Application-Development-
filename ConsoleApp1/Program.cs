@@ -23,7 +23,7 @@ namespace ConsoleApp1
             NullOperator.PerformNullCheck check = new NullOperator.PerformNullCheck();
             check.PerformNullChecks();
 
-            Week3.AgeValidator age= new Week3.AgeValidator();
+            Week3.AgeValidator age = new Week3.AgeValidator();
             age.ValidateAge(2);
 
             Week3.days days = new Week3.days();
@@ -38,7 +38,7 @@ namespace ConsoleApp1
 
             Week3.ArrayEg arrayEg = new Week3.ArrayEg();
             arrayEg.ArrayEx();
-            
+
             Week3.TryCatchEx tryCatch = new Week3.TryCatchEx();
             tryCatch.TryCatchEg();
 
@@ -105,7 +105,7 @@ namespace ConsoleApp1
 
             Console.WriteLine("Remaining Balance: " + acc.Balance);
 
-           
+
 
 
             //Week 5 task 2:
@@ -164,7 +164,7 @@ namespace ConsoleApp1
             Console.WriteLine("English Teacher:");
             englishT.Teaching();    // uses base class method
             englishT.SalaryInfo();
-            
+
 
 
             //Task 4
@@ -212,15 +212,114 @@ namespace ConsoleApp1
 
             Week6 calculator1 = new Week6();
             calculator del1;
-            del1=calculator1.add;
+            del1 = calculator1.add;
             Console.WriteLine($"Addition: {del1(10, 20)}");
-            del1 =calculator1.sub;
+            del1 = calculator1.sub;
             Console.WriteLine($"Subtraction: {del1(30, 15)}");
 
+            Console.WriteLine("Festival Discount: " +
+             calculator1.CalculateFinalPrice(1000, calculator1.FestivalDiscount));
+
+            Console.WriteLine("Seasonal Discount: " +
+                calculator1.CalculateFinalPrice(1000, calculator1.SeasonalDiscount));
+
+            Console.WriteLine("No Discount: " +
+                calculator1.CalculateFinalPrice(1000, calculator1.NoDiscount));
+
+            Console.WriteLine("Lambda 30% Discount: " +
+                calculator1.CalculateFinalPrice(1000, p => p * 0.70));
+
+
+            //Task 3
+
+            int[] arr = { 2, 5, 12, 20, 7 };
+
+            Console.WriteLine("Even Numbers:");
+            calculator1.ProcessNumbers(arr, n => n % 2 == 0);
+
+            Console.WriteLine("Greater than 10:");
+            calculator1.ProcessNumbers(arr, n => n > 10);
+
+            // Task 4
+
+            Console.WriteLine("Squares:");
+            var squares = calculator1.SquareNumbers(new List<int> { 1, 2, 3, 4, 5 });
+            squares.ForEach(Console.WriteLine);
+
+            Console.WriteLine("\nPremium Books:");
+            var books = new List<Book>
+            {
+                new Book { Name = "Book A", Price = 500 },
+                new Book { Name = "Book B", Price = 1500 }
+            };
+            calculator1.FilterPremiumBooks(books).ForEach(b => Console.WriteLine(b.Name));
+
+            Console.WriteLine("\nSorted Students:");
+            var students = new List<Student>
+            {
+                new Student { Name="Ram" },
+                new Student { Name="Aayush" },
+                new Student { Name="Bimal" }
+            };
+            calculator1.SortStudents(students).ForEach(s => Console.WriteLine(s.Name));
+
+            // Task 5
+
+            var sales = new List<CashierSales>
+            {
+                new CashierSales { Name="A", Amount=200 },
+                new CashierSales { Name="B", Amount=350 },
+                new CashierSales { Name="C", Amount=500 }
+            };
+
+            var saleResult = calculator1.CalculateSales(sales);
+            Console.WriteLine($"Total Cashiers: {saleResult.totalCashiers}");
+            Console.WriteLine($"Total Sales: {saleResult.totalSales}");
+            Console.WriteLine($"Highest Sale: {saleResult.highest}");
+            Console.WriteLine($"Lowest Sale: {saleResult.lowest}");
+            Console.WriteLine($"Average Sale: {saleResult.average:F2}");
+
+            var applicants = new List<Applicant>
+            {
+                new Applicant { FullName="Ram", Age=17 },
+                new Applicant { FullName="Shyam", Age=20 },
+                new Applicant { FullName="Gita", Age=22 }
+            };
+
+            var appCheck = calculator1.CheckApplicants(applicants);
+            Console.WriteLine($"Any under 18? {appCheck.under18}");
+            Console.WriteLine($"All above 16? {appCheck.allAbove16}");
+
+            var durations = new List<int> { 180, 250, 300, 700 };
+            var songInfo = calculator1.SongDurationTask(durations);
+
+            Console.WriteLine($"First Duration: {songInfo.first}");
+            Console.WriteLine($"Last Duration: {songInfo.last}");
+            Console.WriteLine($"> 4 Minutes First: {songInfo.firstAbove4Min}");
+            Console.WriteLine($"> 10 Minutes Safe Value: {songInfo.safeAbove10}");
+
+            // Task6
+            
+
+            var tours = new List<Tour>
+            {
+                new Tour{ CustomerName="Aayush", Destination="Japan", Price=15000, DurationInDays=6, IsInternational=true },
+                new Tour{ CustomerName="Krisha", Destination="Pokhara", Price=12000, DurationInDays=5, IsInternational=false },
+                new Tour{ CustomerName="Roshan", Destination="Korea", Price=18000, DurationInDays=7, IsInternational=true }
+            };
+
+            var results = calculator1.ProcessTours(tours);
+
+            Console.WriteLine("Filtered & Sorted Tours:");
+            foreach (var t in results)
+            {
+                Console.WriteLine($"{t.CustomerName} | {t.Destination} | {t.Category} | Rs {t.Price}");
+            }
+
+            
+
+
         }
-
-
-
 
     }
     }
